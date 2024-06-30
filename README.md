@@ -34,8 +34,8 @@ We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/h
 
 ### Project Structure
 
-- **movielens Dataset/**: Contains the dataset files.
-- **models/**: Contains the saved model architecture and weights.
-- **Project Repositories/**: Jupyter notebooks used for model training and evaluation.
-- **src/**: Source code for the project.
+- **movielens Dataset**: Contains the dataset files.
+- **models**: Contains the saved model architecture and weights.
+- **Project Repositories**: Jupyter notebooks used for model training and evaluation.
+- **src**: Source code for the project.
 - **README.md**: Project documentation.
