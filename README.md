@@ -26,12 +26,6 @@ We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/h
 - `links.csv`: Identifiers that can be used to link to other sources of movie data.
 - `tags.csv`: User-generated tags for movies.
 
-## Team Members
-- Ahmed El-Metwally
-- Nawal Abdelmoniem
-- Hana Helaly
-- Nada Ibrahim
-
 
 ### Project Structure
 
@@ -39,3 +33,12 @@ We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/h
 - **models**: Contains the saved model architecture and weights.
 - **Project Repositories**: Jupyter notebooks used for model training and evaluation.
 - **README.md**: Project documentation.
+
+
+
+## Team Members
+- Ahmed El-Metwally
+- Nawal Abdelmoniem
+- Hana Helaly
+- Nada Ibrahim
+
