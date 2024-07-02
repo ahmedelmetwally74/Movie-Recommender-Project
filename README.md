@@ -2,12 +2,6 @@
 
 This project is a user-based movie recommendation system developed using the MovieLens dataset. The system employs a deep learning model to provide personalized movie recommendations for users based on their past ratings.
 
-## Team Members
-- Ahmed El-Metwally
-- Nawal Abdelmoniem
-- Hana Hany
-- Nada Ibrahim
-
 ## About the Project
 
 The goal of this project is to build a recommendation system that suggests movies to users based on their preferences. We used collaborative filtering techniques and deep learning to create a model that predicts the ratings users would give to movies they have not yet rated. The model was developed using TensorFlow and Keras, leveraging embeddings and dense layers to capture the latent features of users and movies.
@@ -32,9 +26,19 @@ We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/h
 - `links.csv`: Identifiers that can be used to link to other sources of movie data.
 - `tags.csv`: User-generated tags for movies.
 
+
 ### Project Structure
 
 - **movielens Dataset**: Contains the dataset files.
 - **models**: Contains the saved model architecture and weights.
 - **Project Repositories**: Jupyter notebooks used for model training and evaluation.
 - **README.md**: Project documentation.
+
+
+
+## Team Members
+- Ahmed El-Metwally
+- Nawal Abdelmoniem
+- Hana Helaly
+- Nada Ibrahim
+
