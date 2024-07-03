@@ -1,0 +1,27 @@
+movieId,title,genres
+50,The Usual Suspects,Crime|Mystery|Thriller
+260,Star Wars: Episode IV - A New Hope,Action|Adventure|Sci-Fi
+296,Pulp Fiction,Comedy|Crime|Drama|Thriller
+318,The Shawshank Redemption,Crime|Drama
+356,Forrest Gump,Comedy|Drama|Romance|War
+527,Schindler's List,Drama|War
+593,The Silence of the Lambs,Crime|Horror|Thriller
+858,The Godfather,Crime|Drama
+1089,Reservoir Dogs,Crime|Mystery|Thriller
+1136,Monty Python and the Holy Grail,Adventure|Comedy|Fantasy
+1193,One Flew Over the Cuckoo's Nest,Drama
+1196,Star Wars: Episode V - The Empire Strikes Back,Action|Adventure|Sci-Fi
+1197,The Princess Bride,Action|Adventure|Comedy|Fantasy|Romance
+1198,Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark),Action|Adventure
+1208,Apocalypse Now,Action|Drama|War
+1213,Goodfellas,Crime|Drama
+1221,The Godfather: Part II,Crime|Drama
+2028,Saving Private Ryan,Action|Drama|War
+2329,American History X,Crime|Drama
+2571,The Matrix,Action|Sci-Fi|Thriller
+2959,Fight Club,Action|Crime|Drama|Thriller
+3147,The Green Mile,Crime|Drama
+4973,"Amelie (Fabuleux destin d'Amélie Poulain, Le)",Comedy|Romance
+7361,Eternal Sunshine of the Spotless Mind,Drama|Romance|Sci-Fi
+48516,The Departed,Crime|Drama|Thriller
+58559,The Dark Knight,Action|Crime|Drama|IMAX
