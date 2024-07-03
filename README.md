@@ -4,7 +4,7 @@ This project is a user-based movie recommendation system developed using the Mov
 
 ## Video Demonstration
 
-![Video Demonstration]([https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Movie%20Match.gif](https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Untitled%20design.mp4))
+![Video Demonstration](https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/movie-gif.gif)
 
 ## About the Project
 
@@ -42,3 +42,6 @@ We used the [MovieLens](https://www.kaggle.com/datasets/hanahelaly/movielens-sma
 - Nawal Abdelmoniem
 - Hana Helaly
 - Nada Ibrahim
+
+### Full video link
+![Video Demonstration]([https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/movie-gif.gif](https://drive.google.com/file/d/1AKeor13ehmeWRq6HbDeDEz5jICmhzMI4/view?usp=sharing))
