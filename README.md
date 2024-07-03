@@ -4,7 +4,7 @@ This project is a user-based movie recommendation system developed using the Mov
 
 ## Video Demonstration
 
-![Video Demonstration](https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Movie%20Match.gif)
+[![Video Demonstration]([https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Movie%20Match.gif](https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Untitled%20design.mp4))]
 
 ## About the Project
 
