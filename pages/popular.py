@@ -1,25 +1,34 @@
+# popular.py
 import pathlib
 import dash_bootstrap_components as dbc
 from dash import html
 import pandas as pd
 import requests
 
-# Load precomputed top movies dataset
+
+# File paths
 PATH = pathlib.Path(__file__).parent
-DATA_PATH = PATH.joinpath("../data").resolve()
+DATA_PATH = PATH.joinpath("../movielens Dataset").resolve()
 
 top_movies = pd.read_csv(DATA_PATH.joinpath("top_movies.csv"))
 
+
 def fetch_movie_data(movie_title):
-    api_key = '249559df'  # Replace with your actual OMDb API key
+    api_key = '8884cb9'  # Replace with your actual OMDb API key
     url = f'http://www.omdbapi.com/?t={movie_title}&apikey={api_key}'
 
     response = requests.get(url)
     if response.status_code == 200:
-        return response.json()
+        data = response.json()
+        if data.get('Response') == 'True':
+            print(f"Fetched data for {movie_title}: {data}")
+            return data
+        else:
+            print(f"OMDb API error for {movie_title}: {data.get('Error')}")
+            return None
     else:
+        print(f"Failed to fetch data for {movie_title}, status code: {response.status_code}")
         return None
-
 
 def create_movie_card(movie_data):
     poster = movie_data.get('Poster', '/assets/default_poster.jpg')
@@ -53,7 +62,6 @@ def create_movie_card(movie_data):
         ),
         width=3  # Each column width for 4 cards per row
     )
-
 
 movie_cards = []
 

@@ -5,7 +5,7 @@ import pandas as pd
 from app import app
 
 PATH = pathlib.Path(__file__).parent
-DATA_PATH = PATH.joinpath("../data").resolve()
+DATA_PATH = PATH.joinpath("../movielens Dataset").resolve()
 
 movies = pd.read_csv(DATA_PATH.joinpath("movies.csv"))
 ratings = pd.read_csv(DATA_PATH.joinpath("ratings.csv"))
@@ -19,7 +19,7 @@ layout = dbc.Container(
     [
         dbc.Row(
             dbc.Col(
-                html.H2("🚀 Get Movie Recommendations Now!",
+                html.H2("👥 Explore User Recommendations",
                         style={
                             'text-align': 'center', 'margin-top': '40px', 'margin-bottom': '50px',
                             'text-shadow': '0 0 7px rgba(231,72,182,.5), 0 0 10px rgba(216,170,210,.5)'
@@ -28,7 +28,7 @@ layout = dbc.Container(
         ),
         dbc.Row(
             dbc.Col(
-                html.Div("Select user ID", style={'margin-bottom': '10px'}),
+                html.Div("Select a User ID", style={'margin-bottom': '10px'}),
                 width=6,
                 style={'margin': 'auto'}
             )
@@ -51,18 +51,9 @@ layout = dbc.Container(
                 width='auto',
                 style={'margin': 'auto'}
             )
-        )
+        ),
+        # Store to hold button state
+        dcc.Store(id='user-button-state', storage_type='session', data={'button_clicked': False})
     ],
     fluid=True,
 )
-
-@app.callback(
-    Output('user-submit-button', 'href'),  # Output is the href attribute of the button
-    [Input('user-submit-button', 'n_clicks')],  # Trigger on button click
-    [State('user-id-dropdown', 'value')]  # Get selected value from dropdown
-)
-def update_button_href(n_clicks_user, user_id):
-    if n_clicks_user and user_id:
-        return f'/pages/recommendations?user_id={user_id}'
-    else:
-        return '/pages/user'  # Default to user page if no button clicked or no user ID selected

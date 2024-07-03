@@ -2,16 +2,15 @@ import pathlib
 import dash_bootstrap_components as dbc
 from dash import dcc, html, Input, Output, State
 import pandas as pd
-from app import app
 
 # File paths
 PATH = pathlib.Path(__file__).parent
-DATA_PATH = PATH.joinpath("../data").resolve()
+DATA_PATH = PATH.joinpath("../movielens Dataset").resolve()
 
 # Load movies data
 movies = pd.read_csv(DATA_PATH.joinpath("movies.csv"))
 
-# Layout for the movie selection page
+
 layout = dbc.Container(
     [
         dbc.Row(
@@ -49,8 +48,8 @@ layout = dbc.Container(
                 style={'margin': 'auto'}
             )
         ),
-        # Hidden div to store selected movie ID
-        html.Div(id='movie-url', style={'display': 'none'})
+        # Store to hold button state
+        dcc.Store(id='movie-button-state', storage_type='session', data={'button_clicked': False})
     ],
     fluid=True,
 )

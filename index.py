@@ -1,23 +1,27 @@
-from dash import dcc, html, Input, Output, State, callback_context
-from dash_iconify import DashIconify
 import pathlib
 import dash_bootstrap_components as dbc
+from dash import dcc, html, Input, Output, State
 import pandas as pd
 from app import app
-from pages import homepage, user, movie, popular, user_recommendations
+from pages import homepage, movie, user, popular, recommendations
+from dash_iconify import DashIconify
 
+
+# File paths
 PATH = pathlib.Path(__file__).parent
-DATA_PATH = PATH.joinpath("./data").resolve()
+DATA_PATH = PATH.joinpath("./movielens Dataset").resolve()
+
+# Debugging lines to check the path
+print("DATA_PATH:", DATA_PATH)
+print("movies.csv exists:", DATA_PATH.joinpath("movies.csv").exists())
 
 movies = pd.read_csv(DATA_PATH.joinpath("movies.csv"))
-ratings = pd.read_csv(DATA_PATH.joinpath("ratings.csv"))
-# Get the maximum user and movie IDs
-max_userid = ratings['userId'].drop_duplicates().max()
-max_movieid = ratings['movieId'].drop_duplicates().max()
-num_users = max_userid + 1
-num_items = max_movieid + 1
 
-OMDB_API_KEY = '249559df'  # Replace with your actual OMDb API key
+ratings = pd.read_csv(DATA_PATH.joinpath("ratings.csv"))
+
+max_userid = ratings['userId'].drop_duplicates().max()
+
+OMDB_API_KEY = '8884cb9'  # Replace with your actual OMDb API key
 OMDB_API_URL = f'http://www.omdbapi.com/?apikey={OMDB_API_KEY}'
 
 # Define layout structure
@@ -101,7 +105,7 @@ app.layout = html.Div([
     ])
 ])
 
-
+# Callbacks to update page content based on URL
 @app.callback(
     Output('page-content', 'children'),
     [Input('url', 'pathname')]
@@ -116,12 +120,11 @@ def display_page(pathname):
     elif pathname == '/pages/popular':
         return popular.layout
     elif pathname.startswith('/pages/recommendations'):
-        return user_recommendations.layout
-
+        return recommendations.layout
     else:
         return homepage.layout
 
-
+# Callbacks to update navigation link styles
 @app.callback(
     [
         Output('home-icon', 'style'),
@@ -141,51 +144,46 @@ def update_navlink_styles(pathname):
 
     home_icon_style = {'color': active_color if pathname == '/pages/homepage' else default_color, 'margin-right': 11,
                        'font-size': 28}
-    home_text_style = {'color': active_color if pathname == '/pages/homepage' else default_color,
-                       "font-family": "Roboto Condensed', sans-serif"}
+    home_text_style = {'font-family': "Roboto Condensed', sans-serif", 'color': active_color if pathname == '/pages/homepage'  else default_color}
 
-    user_icon_style = {'color': active_color if pathname == '/pages/user' or pathname.startswith(
-        '/pages/user/recommendations?user_id=') else default_color, 'margin-right': 12,
+    user_icon_style = {'color': active_color if pathname == '/pages/user' or pathname.startswith('/pages/recommendations?user') else default_color, 'margin-right': 12,
                        'font-size': 28}
-    user_text_style = {'color': active_color if pathname == '/pages/user' or pathname.startswith(
-        '/pages/user/recommendations?user_id=') else default_color,
-                       "font-family": "Roboto Condensed', sans-serif"}
+    user_text_style = {'font-family': "Roboto Condensed', sans-serif", 'color': active_color if pathname == '/pages/user' or pathname.startswith('/pages/recommendations?user') else default_color}
 
-    movie_icon_style = {'color': active_color if pathname == '/pages/movie' else default_color, 'margin-right': 12,
+    movie_icon_style = {'color': active_color if pathname == '/pages/movie' or pathname.startswith('/pages/recommendations?movie') else default_color, 'margin-right': 12,
                         'font-size': 28}
-    movie_text_style = {'color': active_color if pathname == '/pages/movie' else default_color,
-                        "font-family": "Roboto Condensed', sans-serif"}
+    movie_text_style = {'font-family': "Roboto Condensed', sans-serif", 'color': active_color if pathname == '/pages/movie' or pathname.startswith('/pages/recommendations?movie') else default_color}
 
     star_icon_style = {'color': active_color if pathname == '/pages/popular' else default_color, 'margin-right': 12,
-                       'font-size': 28}
-    star_text_style = {'color': active_color if pathname == '/pages/popular' else default_color,
-                       "font-family": "Roboto Condensed', sans-serif"}
+                       'font-size': 32}
+    star_text_style = {'font-family': "Roboto Condensed', sans-serif", 'color': active_color if pathname == '/pages/popular' else default_color}
 
-    return home_icon_style, home_text_style, user_icon_style, user_text_style, movie_icon_style, movie_text_style, star_icon_style, star_text_style,
+    return home_icon_style, home_text_style, user_icon_style, user_text_style, movie_icon_style, movie_text_style, star_icon_style, star_text_style
 
-
-# Combined callback for both user and movie recommendations
+# Callbacks to update movie button state
 @app.callback(
     Output('url', 'pathname'),
-    [Input('user-submit-button', 'n_clicks'),
-     Input('movie-submit-button', 'n_clicks')],
-    [State('user-id-dropdown', 'value'),
-     State('movie-dropdown', 'value')]
+    [Input('movie-submit-button', 'n_clicks')],
+    [State('movie-dropdown', 'value')]
 )
-def update_output(n_clicks_user, n_clicks_movie, user_id, movie_id):
-    print(n_clicks_user, n_clicks_movie)
-    ctx = callback_context
-    if not ctx.triggered:
-        return '/pages/homepage'
-    button_id = ctx.triggered[0]['prop_id'].split('.')[0]
-
-    if button_id == 'user-submit-button' and n_clicks_user and user_id is not None:
-        return f'/pages/recommendations?user_id={user_id}'
-    elif button_id == 'movie-submit-button' and n_clicks_movie and movie_id is not None:
+def update_movie_button_state(n_clicks, movie_id):
+    if n_clicks and movie_id:
         return f'/pages/recommendations?movie_id={movie_id}'
+    else:
+        return '/pages/movie'
 
-    return '/pages/homepage'
-
+# Callbacks to update user button state
+@app.callback(
+    Output('url', 'pathname', allow_duplicate=True),
+    [Input('user-submit-button', 'n_clicks')],
+    [State('user-id-dropdown', 'value')],
+    prevent_initial_call=True
+)
+def update_user_button_state(n_clicks, user_id):
+    if n_clicks and user_id:
+        return f'/pages/recommendations?user_id={user_id}'
+    else:
+        return '/pages/user'
 
 if __name__ == '__main__':
     app.run_server(port='8051', debug=False)

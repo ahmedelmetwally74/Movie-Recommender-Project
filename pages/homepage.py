@@ -7,13 +7,20 @@ movie_titles = ['fight+club', 'deadpool', 'inside+out', 'bad+boys', 'top+gun+mav
 
 # Function to fetch movie data from OMDb API
 def fetch_movie_data(movie_title):
-    api_key = '249559df'  # Replace with your actual OMDb API key
+    api_key = '8884cb9'  # Replace with your actual OMDb API key
     url = f'http://www.omdbapi.com/?t={movie_title}&apikey={api_key}'
 
     response = requests.get(url)
     if response.status_code == 200:
-        return response.json()
+        data = response.json()
+        if data.get('Response') == 'True':
+            print(f"Fetched data for {movie_title}: {data}")
+            return data
+        else:
+            print(f"OMDb API error for {movie_title}: {data.get('Error')}")
+            return None
     else:
+        print(f"Failed to fetch data for {movie_title}, status code: {response.status_code}")
         return None
 
 # Function to update carousel items based on fetched data
@@ -36,8 +43,6 @@ def update_carousel_items(movie_titles):
                 "href": "#"  # Placeholder link
             })
     return carousel_items
-
-
 
 # Define layout for homepage
 layout = dbc.Container(
@@ -69,7 +74,6 @@ layout = dbc.Container(
                 dbc.Col(
                     html.Div(
                         [
-
                             html.P("Finding the perfect movie has never been easier!",
                                    className="lead",
                                    style={'margin-top': '10px', 'margin-bottom': '10px', "font-family": "Roboto Condensed, sans-serif"}),
@@ -133,5 +137,3 @@ layout = dbc.Container(
     ],
     fluid=True,
 )
-
-
