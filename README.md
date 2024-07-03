@@ -35,7 +35,7 @@ We used the [MovieLens](https://www.kaggle.com/datasets/hanahelaly/movielens-sma
 
 ## Video Demonstration
 
-![Video Demonstration]([path/to/your/uploaded.gif](https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Movie%20Match.gif))
+![Video Demonstration](https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Movie%20Match.gif)
 
 ## Team Members
 - Ahmed El-Metwally
