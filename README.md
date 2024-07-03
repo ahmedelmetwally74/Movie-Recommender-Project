@@ -15,7 +15,7 @@ The goal of this project is to build a recommendation system that suggests movie
 
 ### Dataset
 
-We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/hanahelaly/movielens-small)) dataset for training and evaluating our recommendation system. The dataset includes:
+We used the [MovieLens](https://www.kaggle.com/datasets/hanahelaly/movielens-small) dataset for training and evaluating our recommendation system. The dataset includes:
 
 - **Ratings**: Contains user ratings for different movies.
 - **Movies**: Contains metadata about the movies, including titles and genres.
@@ -26,7 +26,6 @@ We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/h
 - `links.csv`: Identifiers that can be used to link to other sources of movie data.
 - `tags.csv`: User-generated tags for movies.
 
-
 ### Project Structure
 
 - **movielens Dataset**: Contains the dataset files.
@@ -34,11 +33,12 @@ We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/h
 - **Project Repositories**: Jupyter notebooks used for model training and evaluation.
 - **README.md**: Project documentation.
 
+## Video Demonstration
 
+![Video Demonstration]([path/to/your/uploaded.gif](https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Movie%20Match.gif))
 
 ## Team Members
 - Ahmed El-Metwally
 - Nawal Abdelmoniem
 - Hana Helaly
 - Nada Ibrahim
-
