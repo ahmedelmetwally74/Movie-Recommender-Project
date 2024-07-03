@@ -44,4 +44,4 @@ We used the [MovieLens](https://www.kaggle.com/datasets/hanahelaly/movielens-sma
 - Nada Ibrahim
 
 ### Full video link
-![Video Demonstration](https://drive.google.com/file/d/1AKeor13ehmeWRq6HbDeDEz5jICmhzMI4/view?usp=sharing)
+[Video Demonstration](https://drive.google.com/file/d/1AKeor13ehmeWRq6HbDeDEz5jICmhzMI4/view?usp=sharing)
