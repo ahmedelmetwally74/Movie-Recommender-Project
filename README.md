@@ -2,6 +2,10 @@
 
 This project is a user-based movie recommendation system developed using the MovieLens dataset. The system employs a deep learning model to provide personalized movie recommendations for users based on their past ratings.
 
+## Video Demonstration
+
+![Video Demonstration](https://github.com/ahmedelmetwally74/Movie-Recommender-Project/blob/main/Movie%20Match.gif)
+
 ## About the Project
 
 The goal of this project is to build a recommendation system that suggests movies to users based on their preferences. We used collaborative filtering techniques and deep learning to create a model that predicts the ratings users would give to movies they have not yet rated. The model was developed using TensorFlow and Keras, leveraging embeddings and dense layers to capture the latent features of users and movies.
@@ -15,7 +19,7 @@ The goal of this project is to build a recommendation system that suggests movie
 
 ### Dataset
 
-We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/hanahelaly/movielens-small)) dataset for training and evaluating our recommendation system. The dataset includes:
+We used the [MovieLens](https://www.kaggle.com/datasets/hanahelaly/movielens-small) dataset for training and evaluating our recommendation system. The dataset includes:
 
 - **Ratings**: Contains user ratings for different movies.
 - **Movies**: Contains metadata about the movies, including titles and genres.
@@ -26,7 +30,6 @@ We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/h
 - `links.csv`: Identifiers that can be used to link to other sources of movie data.
 - `tags.csv`: User-generated tags for movies.
 
-
 ### Project Structure
 
 - **movielens Dataset**: Contains the dataset files.
@@ -34,11 +37,8 @@ We used the [MovieLens]([http://movielens.org](https://www.kaggle.com/datasets/h
 - **Project Repositories**: Jupyter notebooks used for model training and evaluation.
 - **README.md**: Project documentation.
 
-
-
 ## Team Members
 - Ahmed El-Metwally
 - Nawal Abdelmoniem
 - Hana Helaly
 - Nada Ibrahim
-
