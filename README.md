@@ -1,6 +1,6 @@
 # Movie Recommendation System
 
-This project is a user-based movie recommendation system developed using the MovieLens dataset. The system employs a deep learning model to provide personalized movie recommendations for users based on their past ratings.
+This project is a user-based and item-based movie recommendation system developed using the MovieLens dataset. The system employs a deep learning model to provide personalized movie recommendations for users based on their past ratings.
 
 ## Video Demonstration
 
